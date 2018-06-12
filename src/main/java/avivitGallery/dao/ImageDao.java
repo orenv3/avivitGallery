@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import avivitGallery.Type;
 import avivitGallery.tables.ImageDetail;
 
+@Service
 public class ImageDao {
 
 	@Autowired
@@ -26,7 +28,7 @@ public class ImageDao {
 	}
 
 	public List<ImageDetail> getImageList() {
-		return (List<ImageDetail>) imageRepo.findAll();
+		return  (List<ImageDetail>) imageRepo.findAll();
 	}
 
 	public List<ImageDetail> getImageListByType(Type type) {
