@@ -13,11 +13,11 @@ import avivitGallery.Type;
 @Entity
 public class ImageDetail {
 
+	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
 	@Column
-	@Id
 	private String name;
 
 	@Column

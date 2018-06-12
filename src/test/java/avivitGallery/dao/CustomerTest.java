@@ -55,6 +55,7 @@ public class CustomerTest {
 		}
 		
 		System.out.println("============ getAllCustomers ============");
+		
 		System.out.println(custDao.getAllCustomers());
 		
 		// ================= delete customer =============// 
