@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
+Built-By: Vinogura Oren
+Build-Jdk: 10.0.1
 Implementation-Title: avivitGallery
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: Vinogura
 Implementation-Vendor-Id: avivitGallery
-Build-Jdk: 1.8.0_172
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/avivitGallery
 Created-By: Maven Integration for Eclipse

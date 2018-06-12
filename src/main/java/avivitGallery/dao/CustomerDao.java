@@ -18,8 +18,8 @@ public class CustomerDao {
 		custRepo.save(cust);
 	}
 
-	public void deleteCustomer(Customer cust) {
-		custRepo.delete(cust);
+	public <T> void deleteCustomer(T entity ) {
+		custRepo.delete((Customer) entity);
 	}
 
 	public Optional<Customer> getCustomerByEmail(String email) {
