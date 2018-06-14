@@ -44,8 +44,8 @@ public class CustomerTest {
 //		System.out.println("customer nisg with update==> " + nisg);
 //		custDao.saveCustomer(nisg);
 		
-			c= custDao.getCustomerByName("customer3").get();
-					custDao.deleteCustomer(c);
+		// c= custDao.getCustomerByName("customer3").get();
+		// custDao.deleteCustomer(c);
 		for (int i = 1; i < 4; i++) {
 			c.setName("customer"+i);
 			c.setEmail("customer@email"+i);

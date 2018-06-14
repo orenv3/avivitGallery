@@ -21,13 +21,13 @@ public class ImageDetail {
 	private String name;
 
 	@Column
-	private Type type;
+	private String type;
 
 	@Column
 	private String imageUrl;
 
 	@Column
-	private Date dateCreated;
+	private String dateCreated;
 
 	public ImageDetail() {
 
@@ -37,7 +37,7 @@ public class ImageDetail {
 		super();
 		this.id = id;
 		this.name = name;
-		this.type = type;
+		this.type = type.toString();
 		this.dateCreated = dateCreated;
 	}
 
@@ -58,11 +58,11 @@ public class ImageDetail {
 	}
 
 	public Type getType() {
-		return type;
+		return Type.valueOf(type);
 	}
 
 	public void setType(Type type) {
-		this.type = type;
+		this.type = type.toString();
 	}
 
 	public Date getDateCreated() {
