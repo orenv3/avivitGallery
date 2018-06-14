@@ -4,11 +4,12 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
+import avivitGallery.Type;
 import avivitGallery.tables.ImageDetail;
 
 public interface ImageRepo extends CrudRepository<ImageDetail, String> {
 
-	List<ImageDetail> findByType(String type);
+	List<ImageDetail> findByType(Type type);
 
 	ImageDetail findByImageUrl(String url);
 

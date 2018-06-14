@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,7 +23,8 @@ public class ImageDetail {
 	private String name;
 
 	@Column
-	private String type;
+	@Enumerated(EnumType.STRING)
+	private Type type;
 
 	@Column
 	private String imageUrl;
@@ -36,7 +39,7 @@ public class ImageDetail {
 	public ImageDetail(String name, Type type, Date dateCreated, String imageUrl) {
 		super();
 		this.name = name;
-		this.type = type.toString();
+		this.type = type;
 		this.dateCreated = dateCreated;
 		this.imageUrl = imageUrl;
 	}
@@ -58,11 +61,11 @@ public class ImageDetail {
 	}
 
 	public Type getType() {
-		return Type.valueOf(type);
+		return type;
 	}
 
 	public void setType(Type type) {
-		this.type = type.toString();
+		this.type = type;
 	}
 
 	public Date getDateCreated() {
