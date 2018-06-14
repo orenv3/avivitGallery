@@ -1,5 +1,8 @@
 package avivitGallery.dao;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,23 +59,27 @@ public class ImageTest {
 		// System.out.println("==============get by url==============");
 		// image = imageDao.getImageByUrl("imageURL9");
 		// System.out.println("==============>" + image);
-		image = imageDao.getImageByUrl("imageName13");
-		imageDao.deleteImage(image);
+		// image = imageDao.getImageByUrl("imageURL3");
+		// imageDao.deleteImage(image);
 
-		image.setImageUrl("imageURL1");
-		image.setName("imageName1");
-		image.setType(Type.AUTUMN);
+		Calendar cal = Calendar.getInstance();
+		Date date = cal.getTime();
+
+		// image = new ImageDetail("imageName1", Type.AUTUMN, date, "imageURL1");
+
+		// --=-=-=-=-=-=-=-=- update image details -=-=-=-=- =- =-=-= =-//
+
+		// image = imageDao.getImageByName("imageName1");
+		// image.setImageUrl("imageURL1");
+		// imageDao.saveImage(image);
+
+		image = new ImageDetail("imageName5", Type.WINTER, date, "imageURL5");
 		imageDao.saveImage(image);
 
-		image.setImageUrl("imageURL2");
-		image.setName("imageName2");
-		image.setType(Type.WINTER);
-		imageDao.saveImage(image);
-
-		image.setImageUrl("imageURL3");
-		image.setName("imageName3");
-		image.setType(Type.WINTER);
-		imageDao.saveImage(image);
+		// image = new ImageDetail("imageName3", Type.WINTER, date, "imageURL3");
+		// image = imageDao.getImageByName("imageName3");
+		// image.setImageUrl("imageURL3");
+		// imageDao.saveImage(image);
 
 		// ============================ check update ===== //
 		// image = imageDao.getImageByName("imageName11");
@@ -80,6 +87,21 @@ public class ImageTest {
 		// image.setType(Type.NO_TYPE);
 		// System.out.println("===set type var ==> " + image.getType());
 		// imageDao.saveImage(image);
+
+		// ============== test list by type and list of all images ======= //
+
+		// System.out.println("============ imageDao.getImageList() ==============");
+		// List<ImageDetail> list = imageDao.getImageList();
+		// for (ImageDetail img : list) {
+		// System.out.println("==> " + img);
+		// }
+
+		// System.out.println("============ imageDao.getImageListByType(Type.WINTER)
+		// ==============");
+		// list = imageDao.getImageListByType(Type.WINTER);
+		// for (ImageDetail img : list) {
+		// System.out.println("==> " + img);
+		// }
 
 
 				}

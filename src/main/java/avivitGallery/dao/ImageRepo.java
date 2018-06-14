@@ -15,4 +15,5 @@ public interface ImageRepo extends CrudRepository<ImageDetail, String> {
 	ImageDetail findByName(String name);
 
 	ImageDetail findById(int id);
+
 }

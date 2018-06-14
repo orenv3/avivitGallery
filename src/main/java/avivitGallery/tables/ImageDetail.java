@@ -27,18 +27,18 @@ public class ImageDetail {
 	private String imageUrl;
 
 	@Column
-	private String dateCreated;
+	private Date dateCreated;
 
 	public ImageDetail() {
 
 	}
 
-	public ImageDetail(int id, String name, Type type, Date dateCreated) {
+	public ImageDetail(String name, Type type, Date dateCreated, String imageUrl) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.type = type.toString();
 		this.dateCreated = dateCreated;
+		this.imageUrl = imageUrl;
 	}
 
 	public int getId() {

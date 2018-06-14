@@ -14,6 +14,11 @@ public class CustomerDao {
 	@Autowired
 	private CustomerRepo custRepo;
 
+	/**
+	 * create and update method
+	 * 
+	 * @param image
+	 */
 	public void saveCustomer(Customer cust) {
 		custRepo.save(cust);
 	}

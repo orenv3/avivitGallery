@@ -4,7 +4,7 @@ public enum Type {
 
 	SPRING, WINTER, SUMMERTIME, AUTUMN, NO_TYPE;
 
-	public Enum ToEnum(String type) {
+	public Enum<Type> ToEnum(String type) {
 		switch (type) {
 		case "SPRING":
 			return SPRING;
@@ -20,4 +20,5 @@ public enum Type {
 		}
 		return NO_TYPE;
 	}
+
 }
