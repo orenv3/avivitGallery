@@ -45,8 +45,8 @@ public class CustomerFacade {
 	}
 
 	public Customer getCustomerByEmail(String email) throws Customer_problem, Customer_Not_Exists {
-		if (email.isEmpty())
-			throw new Customer_problem("The email field must not be empty.");
+		if (email == null || email.isEmpty())
+			throw new Customer_problem("The email field must not be empty or null.");
 		Customer customer = custDao.getCustomerByEmail(email);
 
 		if (this.isNotProblematic(customer, GET))
@@ -55,15 +55,14 @@ public class CustomerFacade {
 		return null; // not suppose to reach this line.
 	}
 
-	public Customer getCustomerByName(String name) throws Customer_problem, Customer_Not_Exists {
-		if (name.isEmpty())
-			throw new Customer_problem("The name field must not be empty.");
-		Customer customer = custDao.getCustomerByName(name);
-
-		if (this.isNotProblematic(customer, GET))
-			if (this.isPresent(customer, GET))
-				return customer;
-		return null; // not suppose to reach this line.
+	public List<Customer> getCustomersByName(String name) throws Customer_problem, Customer_Not_Exists {
+		if (name == null || name.isEmpty())
+			throw new Customer_problem("The name field must not be empty or null.");
+		Optional<List<Customer>> customerList = Optional.ofNullable(custDao.getCustomersByName(name));
+		if (customerList.isPresent())
+			if (customerList.get().size() > 0)
+				return customerList.get();
+		throw new Customer_problem("There are no customers to present via this name: " + name);
 	}
 
 	public List<Customer> getAllCustomers() throws Customer_problem {

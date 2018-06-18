@@ -30,7 +30,7 @@ public class CustomerDao {
 		return custRepo.findByEmail(email);
 	}
 
-	public Customer getCustomerByName(String name) {
+	public List<Customer> getCustomersByName(String name) {
 		return custRepo.findByName(name);
 	}
 
