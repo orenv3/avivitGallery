@@ -34,7 +34,7 @@ public class CustomerFacade {
 		if (newEmail == null || newEmail.isEmpty())
 			throw new Customer_problem("The email must not be empty or null.");
 
-		Optional<Customer> presentByEmail = custDao.getCustomerByEmail(newEmail);
+		Optional<Customer> presentByEmail = Optional.ofNullable(custDao.getCustomerByEmail(newEmail));
 
 		if (this.isNotProblematic(customer, UPDATE)) {
 			if (presentByEmail.isPresent() && !(customer.getEmail().equals(newEmail)))
@@ -47,7 +47,7 @@ public class CustomerFacade {
 	public Customer getCustomerByEmail(String email) throws Customer_problem, Customer_Not_Exists {
 		if (email.isEmpty())
 			throw new Customer_problem("The email field must not be empty.");
-		Customer customer = custDao.getCustomerByEmail(email).get();
+		Customer customer = custDao.getCustomerByEmail(email);
 
 		if (this.isNotProblematic(customer, GET))
 			if (this.isPresent(customer, GET))
@@ -58,7 +58,7 @@ public class CustomerFacade {
 	public Customer getCustomerByName(String name) throws Customer_problem, Customer_Not_Exists {
 		if (name.isEmpty())
 			throw new Customer_problem("The name field must not be empty.");
-		Customer customer = custDao.getCustomerByName(name).get();
+		Customer customer = custDao.getCustomerByName(name);
 
 		if (this.isNotProblematic(customer, GET))
 			if (this.isPresent(customer, GET))
@@ -120,7 +120,7 @@ public class CustomerFacade {
 	 */
 	private boolean isPresent(Customer cust, String method) throws Customer_Not_Exists, Customer_problem {
 
-		Optional<Customer> presentByEmail = custDao.getCustomerByEmail(cust.getEmail());
+		Optional<Customer> presentByEmail = Optional.ofNullable(custDao.getCustomerByEmail(cust.getEmail()));
 
 		switch (method) {
 		case CREATE:

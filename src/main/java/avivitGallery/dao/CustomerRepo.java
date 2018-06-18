@@ -9,4 +9,6 @@ import avivitGallery.tables.Customer;
 public interface CustomerRepo extends CrudRepository<Customer, String> {
 
 	Customer findByName(String name);
+
+	Customer findByEmail(String email);
 }

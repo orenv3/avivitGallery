@@ -1,7 +1,6 @@
 package avivitGallery.dao;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,16 +22,16 @@ public class CustomerDao {
 		custRepo.save(cust);
 	}
 
-	public <T> void deleteCustomer(T entity ) {
+	public <T> void deleteCustomer(T entity) {
 		custRepo.delete((Customer) entity);
 	}
 
-	public Optional<Customer> getCustomerByEmail(String email) {
-		return custRepo.findById(email);
+	public Customer getCustomerByEmail(String email) {
+		return custRepo.findByEmail(email);
 	}
 
-	public Optional<Customer> getCustomerByName(String name) {
-		return Optional.ofNullable(custRepo.findByName(name));
+	public Customer getCustomerByName(String name) {
+		return custRepo.findByName(name);
 	}
 
 	public List<Customer> getAllCustomers() {
