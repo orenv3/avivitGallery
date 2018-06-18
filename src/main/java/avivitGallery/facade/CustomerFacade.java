@@ -13,7 +13,7 @@ import avivitGallery.tables.Customer;
 
 @Component
 public class CustomerFacade {
-
+//test
 	private final String UPDATE = "UPDATE", GET = "GET", CREATE = "CREATE";
 	@Autowired
 	CustomerDao custDao;
