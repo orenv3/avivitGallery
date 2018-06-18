@@ -68,8 +68,9 @@ public class ImageFacade {
 			if (presentByName.isPresent() && !(img.getName().equals(newName)))
 				throw new Image_exists("The image name already exists");
 		}
-		if (presentByUrl.isPresent())
-			imgDao.saveImage(img);
+		img.setName(newName);
+		img.setImageUrl(newUrl);
+		imgDao.saveImage(img);
 	}
 
 	public ImageDetail getImageById(int id) throws Image_Does_Not_Exists, Image_problem, Image_exists {
