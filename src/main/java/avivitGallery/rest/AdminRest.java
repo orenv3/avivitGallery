@@ -98,6 +98,32 @@ public class AdminRest {
 
 	}
 
+	@RequestMapping(value = "/getCustomerByEmail/{email}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity getCustomerByEmail(@PathVariable("email") String email) {
+		Customer customer = new Customer();
+		try {
+			customer = custFacade.getCustomerByEmail(email);
+		} catch (Customer_problem | Customer_Not_Exists e) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).contentType(MediaType.TEXT_PLAIN).body(e.getMessage());
+		}
+
+		return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON).body(customer);
+
+	}
+
+	@RequestMapping(value = "/getCustomersList", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity getCustomersList() {
+		List<Customer> customersList = null;
+
+		try {
+			customersList = custFacade.getAllCustomers();
+		} catch (Customer_problem e) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).contentType(MediaType.TEXT_PLAIN).body(e.getMessage());
+		}
+		return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON).body(customersList);
+
+	}
+
 	/////////////////////// image methods ///////////////////////////////
 	/////////////////////////////////////////////////////////////////////
 	@RequestMapping(value = "/createImage", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
